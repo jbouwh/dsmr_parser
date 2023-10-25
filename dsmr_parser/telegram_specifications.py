@@ -431,11 +431,6 @@ V5 = {
             'value_name': 'TEXT_MESSAGE'
         },
         {
-            'obis_reference': obis.DEVICE_TYPE,
-            'value_parser': CosemParser(ValueParser(int)),
-            'value_name': 'DEVICE_TYPE'
-        },
-        {
             'obis_reference': obis.INSTANTANEOUS_ACTIVE_POWER_L1_POSITIVE,
             'value_parser': CosemParser(ValueParser(Decimal)),
             'value_name': 'INSTANTANEOUS_ACTIVE_POWER_L1_POSITIVE'
@@ -466,17 +461,27 @@ V5 = {
             'value_name': 'INSTANTANEOUS_ACTIVE_POWER_L3_NEGATIVE'
         },
         {
-            'obis_reference': obis.EQUIPMENT_IDENTIFIER_GAS,
-            'value_parser': CosemParser(ValueParser(str)),
-            'value_name': 'EQUIPMENT_IDENTIFIER_GAS'
+            'obis_reference': obis.MBUS_DEVICE_TYPE,
+            'value_parser': CosemParser(ValueParser(int)),
+            'value_name': 'MBUS_DEVICE_TYPE'
         },
         {
-            'obis_reference': obis.HOURLY_GAS_METER_READING,
-            'value_parser':  MBusParser(
+            'obis_reference': obis.MBUS_EQUIPMENT_IDENTIFIER,
+            'value_parser': CosemParser(ValueParser(str)),
+            'value_name': 'MBUS_EQUIPMENT_IDENTIFIER'
+        },
+        {
+            'obis_reference': obis.MBUS_VALVE_POSITION,
+            'value_parser': CosemParser(ValueParser(int)),
+            'value_name': 'MBUS_VALVE_POSITION'
+        },
+        {
+            'obis_reference': obis.MBUS_METER_READING,
+            'value_parser': MBusParser(
                 ValueParser(timestamp),
                 ValueParser(Decimal)
             ),
-            'value_name': 'HOURLY_GAS_METER_READING'
+            'value_name': 'MBUS_METER_READING'
         },
     ]
 }
@@ -640,128 +645,27 @@ BELGIUM_FLUVIUS = {
             'value_name': 'TEXT_MESSAGE'
         },
         {
-            'obis_reference': obis.BELGIUM_MBUS1_DEVICE_TYPE,
+            'obis_reference': obis.MBUS_DEVICE_TYPE,
             'value_parser': CosemParser(ValueParser(int)),
-            'value_name': 'BELGIUM_MBUS1_DEVICE_TYPE'
+            'value_name': 'MBUS_DEVICE_TYPE'
         },
         {
-            'obis_reference': obis.BELGIUM_MBUS1_EQUIPMENT_IDENTIFIER,
+            'obis_reference': obis.MBUS_EQUIPMENT_IDENTIFIER,
             'value_parser': CosemParser(ValueParser(str)),
-            'value_name': 'BELGIUM_MBUS1_EQUIPMENT_IDENTIFIER'
+            'value_name': 'MBUS_EQUIPMENT_IDENTIFIER'
         },
         {
-            'obis_reference': obis.BELGIUM_MBUS1_VALVE_POSITION,
+            'obis_reference': obis.MBUS_VALVE_POSITION,
             'value_parser': CosemParser(ValueParser(int)),
-            'value_name': 'BELGIUM_MBUS1_VALVE_POSITION'
+            'value_name': 'MBUS_VALVE_POSITION'
         },
         {
-            'obis_reference': obis.BELGIUM_MBUS1_METER_READING1,
+            'obis_reference': obis.MBUS_METER_READING,
             'value_parser': MBusParser(
                 ValueParser(timestamp),
                 ValueParser(Decimal)
             ),
-            'value_name': 'BELGIUM_MBUS1_METER_READING1'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS1_METER_READING2,
-            'value_parser': MBusParser(
-                ValueParser(timestamp),
-                ValueParser(Decimal)
-            ),
-            'value_name': 'BELGIUM_MBUS1_METER_READING2'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS2_DEVICE_TYPE,
-            'value_parser': CosemParser(ValueParser(int)),
-            'value_name': 'BELGIUM_MBUS2_DEVICE_TYPE'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS2_EQUIPMENT_IDENTIFIER,
-            'value_parser': CosemParser(ValueParser(str)),
-            'value_name': 'BELGIUM_MBUS2_EQUIPMENT_IDENTIFIER'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS2_VALVE_POSITION,
-            'value_parser': CosemParser(ValueParser(int)),
-            'value_name': 'BELGIUM_MBUS2_VALVE_POSITION'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS2_METER_READING1,
-            'value_parser': MBusParser(
-                ValueParser(timestamp),
-                ValueParser(Decimal)
-            ),
-            'value_name': 'BELGIUM_MBUS2_METER_READING1'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS2_METER_READING2,
-            'value_parser': MBusParser(
-                ValueParser(timestamp),
-                ValueParser(Decimal)
-            ),
-            'value_name': 'BELGIUM_MBUS2_METER_READING2'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS3_DEVICE_TYPE,
-            'value_parser': CosemParser(ValueParser(int)),
-            'value_name': 'BELGIUM_MBUS3_DEVICE_TYPE'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS3_EQUIPMENT_IDENTIFIER,
-            'value_parser': CosemParser(ValueParser(str)),
-            'value_name': 'BELGIUM_MBUS3_EQUIPMENT_IDENTIFIER'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS3_VALVE_POSITION,
-            'value_parser': CosemParser(ValueParser(int)),
-            'value_name': 'BELGIUM_MBUS3_VALVE_POSITION'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS3_METER_READING1,
-            'value_parser': MBusParser(
-                ValueParser(timestamp),
-                ValueParser(Decimal)
-            ),
-            'value_name': 'BELGIUM_MBUS3_METER_READING1'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS3_METER_READING2,
-            'value_parser': MBusParser(
-                ValueParser(timestamp),
-                ValueParser(Decimal)
-            ),
-            'value_name': 'BELGIUM_MBUS3_METER_READING2'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS4_DEVICE_TYPE,
-            'value_parser': CosemParser(ValueParser(int)),
-            'value_name': 'BELGIUM_MBUS4_DEVICE_TYPE'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS4_EQUIPMENT_IDENTIFIER,
-            'value_parser': CosemParser(ValueParser(str)),
-            'value_name': 'BELGIUM_MBUS4_EQUIPMENT_IDENTIFIER'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS4_VALVE_POSITION,
-            'value_parser': CosemParser(ValueParser(int)),
-            'value_name': 'BELGIUM_MBUS4_VALVE_POSITION'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS4_METER_READING1,
-            'value_parser': MBusParser(
-                ValueParser(timestamp),
-                ValueParser(Decimal)
-            ),
-            'value_name': 'BELGIUM_MBUS4_METER_READING1'
-        },
-        {
-            'obis_reference': obis.BELGIUM_MBUS4_METER_READING2,
-            'value_parser': MBusParser(
-                ValueParser(timestamp),
-                ValueParser(Decimal)
-            ),
-            'value_name': 'BELGIUM_MBUS4_METER_READING2'
+            'value_name': 'MBUS_METER_READING'
         },
     ]
 }
@@ -1233,7 +1137,7 @@ EON_HUNGARY = {
             # This seems to be wrong in documentation, it's not 0-0:96.50.68, but 0-0:96.3.10
         },
         {
-            'obis_reference': obis.BELGIUM_MAX_POWER_PER_PHASE,
+            'obis_reference': obis.ACTUAL_TRESHOLD_ELECTRICITY,
             'value_parser': CosemParser(ValueParser(Decimal)),
             'value_name': 'ACTUAL_TRESHOLD_ELECTRICITY'
         },
